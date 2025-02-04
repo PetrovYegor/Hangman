@@ -2,20 +2,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GallowsDrawing {
-    private static final Map<Integer, GallowsStates> numberedStates;
+    private static final Map<Integer, GallowsStates> numberedGallowStates;
+
     static {
-        numberedStates = new HashMap<>();
-        numberedStates.put(0,GallowsStates.DEFAULT);
-        numberedStates.put(1,GallowsStates.HEAD);
-        numberedStates.put(2,GallowsStates.BODY);
-        numberedStates.put(3,GallowsStates.LEFT_HAND);
-        numberedStates.put(4,GallowsStates.RIGHT_HAND);
-        numberedStates.put(5,GallowsStates.LEFT_LEG);
-        numberedStates.put(6,GallowsStates.RIGHT_LEG);
+        numberedGallowStates = new HashMap<>();
+        numberedGallowStates.put(0, GallowsStates.DEFAULT);
+        numberedGallowStates.put(1, GallowsStates.HEAD);
+        numberedGallowStates.put(2, GallowsStates.BODY);
+        numberedGallowStates.put(3, GallowsStates.LEFT_HAND);
+        numberedGallowStates.put(4, GallowsStates.RIGHT_HAND);
+        numberedGallowStates.put(5, GallowsStates.LEFT_LEG);
+        numberedGallowStates.put(6, GallowsStates.RIGHT_LEG);
     }
 
-    public static String drawCurrentGallowsState(int wrongAnswersCount){//test
-        return numberedStates.get(wrongAnswersCount).getState();
+    public static void drawCurrentGallowsState(int stateNumber) {
+        System.out.println(numberedGallowStates.get(stateNumber).getState());
     }
 
     private enum GallowsStates {
@@ -31,8 +32,7 @@ public class GallowsDrawing {
                 _____________|_|
                 |///////////////|
                 |///////////////|
-                """)
-        , HEAD("""
+                """), HEAD("""
                    _____________
                    | \\_______  |
                    |        \\| |
@@ -44,8 +44,7 @@ public class GallowsDrawing {
                 _____________|_|
                 |///////////////|
                 |///////////////|
-                """)
-        , BODY("""
+                """), BODY("""
                    _____________
                    | \\_______  |
                    |        \\| |
@@ -57,8 +56,7 @@ public class GallowsDrawing {
                 _____________|_|
                 |///////////////|
                 |///////////////|
-                """)
-        , LEFT_HAND("""
+                """), LEFT_HAND("""
                    _____________
                    | \\_______  |
                    |        \\| |
@@ -70,8 +68,7 @@ public class GallowsDrawing {
                 _____________|_|
                 |///////////////|
                 |///////////////|
-                """)
-        , RIGHT_HAND("""
+                """), RIGHT_HAND("""
                    _____________
                    | \\_______  |
                    |        \\| |
@@ -83,8 +80,7 @@ public class GallowsDrawing {
                 _____________|_|
                 |///////////////|
                 |///////////////|
-                """)
-        , LEFT_LEG("""
+                """), LEFT_LEG("""
                    _____________
                    | \\_______  |
                    |        \\| |
@@ -96,8 +92,7 @@ public class GallowsDrawing {
                 _____________|_|
                 |///////////////|
                 |///////////////|
-                """)
-        , RIGHT_LEG("""
+                """), RIGHT_LEG("""
                    _____________
                    | \\_______  |
                    |        \\| |
@@ -109,15 +104,14 @@ public class GallowsDrawing {
                 _____________|_|
                 |///////////////|
                 |///////////////|
-                """)
-        ;
+                """);
         private final String state;
 
-        GallowsStates(String state){
+        GallowsStates(String state) {
             this.state = state;
         }
 
-        public String getState(){
+        public String getState() {
             return state;
         }
     }
