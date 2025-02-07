@@ -3,6 +3,7 @@ import java.util.Map;
 
 public class GallowsDrawing {
     private static final Map<Integer, GallowsStates> numberedGallowStates;
+    private static final String ILLEGAL_ARGUMENT_MESSAGE = "Невозможно отобразить виселицу, передан некорректный аргумент: ";
 
     static {
         numberedGallowStates = new HashMap<>();
@@ -16,7 +17,11 @@ public class GallowsDrawing {
     }
 
     public static void drawCurrentGallowsState(int stateNumber) {
-        System.out.println(numberedGallowStates.get(stateNumber).getState());
+        GallowsStates state = numberedGallowStates.get(stateNumber);
+        if (state == null) {
+            throw new IllegalArgumentException(ILLEGAL_ARGUMENT_MESSAGE + stateNumber);
+        }
+        System.out.println(state.getState());
     }
 
     private enum GallowsStates {
@@ -111,7 +116,7 @@ public class GallowsDrawing {
             this.state = state;
         }
 
-        public String getState() {
+        private String getState() {
             return state;
         }
     }
