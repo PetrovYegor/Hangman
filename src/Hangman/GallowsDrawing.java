@@ -1,3 +1,5 @@
+package Hangman;
+
 import java.util.HashMap;
 import java.util.Map;
 
