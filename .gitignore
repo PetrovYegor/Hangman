@@ -2,14 +2,8 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-
-# Исключаем папку .idea и все её содержимое
 .idea/
-
-# Исключаем все файлы .iml
 *.iml
-
-# Исключаем папку target (для Maven/Gradle)
 target/
 
 ### Eclipse ###
